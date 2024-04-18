@@ -2,7 +2,7 @@
   "name": "react.dev",
   "version": "0.0.0",
   "main": "/src/index.js",
-  "homepage": "https://jonatandb.github.io/TicTacToe-ReactTutorial/",
+  "homepage": "https://github.com/Jonatandb/TicTacToe-ReactTutorial",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
