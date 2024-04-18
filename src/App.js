@@ -7,12 +7,30 @@ function Square({ value, onSquareClick }) {
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [xIsNext, setXIsNext] = useState(true)
-  const currentSquares = history[history.length - 1];
+  let currentSquares = history[history.length - 1];
 
   function handlePlay(nextSquares) {
     setHistory([...history, nextSquares])
     setXIsNext(!xIsNext)
   }
+
+  function jumpTo(nextMove) {
+    // TODO
+  }
+
+  const moves = history.map((squares, move) => {
+    let description;
+    if (move > 0) {
+      description = 'Ir al movimiento #' + move;
+    } else {
+      description = 'Ir al inicio del juego';
+    }
+    return (
+      <li key={move}>
+        <button onClick={() => jumpTo(move)}>{description}</button>
+      </li>
+    );
+  });
 
   return (
     <div className="game">
@@ -20,7 +38,7 @@ export default function Game() {
         <Board squares={currentSquares} onPlay={handlePlay} xIsNext={xIsNext} />
       </div>
       <div className="game-info">
-        <ol>{/*TODO*/}</ol>
+        <ol>{moves}</ol>
       </div>
     </div>
   );
